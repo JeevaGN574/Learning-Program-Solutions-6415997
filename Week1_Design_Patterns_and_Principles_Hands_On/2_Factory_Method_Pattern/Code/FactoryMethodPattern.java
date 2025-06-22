@@ -1,11 +1,11 @@
+import java.util.*;
+
 public class FactoryMethodPattern{
 
-    // Step 1: Common interface
     interface Notification {
         void notifyUser();
     }
 
-    // Step 2: Implementations
     static class SMSNotification implements Notification {
         public void notifyUser() {
             System.out.println("Sending SMS Notification");
@@ -39,7 +39,8 @@ public class FactoryMethodPattern{
     }
 
     public static void main(String[] args) {
-        Notification notification = NotificationFactory.createNotification("EMAIL");
+        Scanner scan = new Scanner(System.in);
+        Notification notification = NotificationFactory.createNotification(scan.next());
         notification.notifyUser();
     }
 }
